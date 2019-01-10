@@ -1,9 +1,10 @@
 syntax = "proto3";
 
+import "github.com/mwitkow/go-proto-validators/validator.proto";
 package hello;
 
 message HelloRequest {
-  string name = 1;
+  string name = 1 [(validator.field) = {string_not_empty: true}];
 }
 
 message HelloResponse {
